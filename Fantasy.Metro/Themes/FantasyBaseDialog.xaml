@@ -1,0 +1,89 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fantasy.Metro.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Foundations.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Button.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Geometries.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Storyboard x:Key="DialogShownStoryboard">
+        <DoubleAnimation AccelerationRatio=".9"
+                         BeginTime="0:0:0"
+                         Duration="0:0:0.2"
+                         Storyboard.TargetProperty="Opacity"
+                         To="1" />
+    </Storyboard>
+
+    <Storyboard x:Key="DialogCloseStoryboard">
+        <DoubleAnimation AccelerationRatio=".9"
+                         BeginTime="0:0:0"
+                         Duration="0:0:0.2"
+                         Storyboard.TargetProperty="Opacity"
+                         To="0" />
+    </Storyboard>
+
+    <ControlTemplate x:Key="FantasyBaseDialogTemplate" 
+                     TargetType="controls:FantasyBaseDialog">
+        <Grid Background="{TemplateBinding Background}">
+            <Border Focusable="False" FocusVisualStyle="{x:Null}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ContentPresenter Grid.Row="0"
+                                      Content="{TemplateBinding DialogTop}" />
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*" />
+                            <ColumnDefinition Width="60*" />
+                            <ColumnDefinition Width="20*" />
+                        </Grid.ColumnDefinitions>
+                        <!--  Content area  -->
+                        <Grid Grid.Column="1" Margin="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <!-- Title -->
+                            <TextBlock Grid.Row="0"
+                                       Style="{StaticResource Title}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Text="{TemplateBinding Title}"
+                                       TextWrapping="Wrap" />
+                            <ContentPresenter x:Name="DialogBodyContentPresenter"
+                                              Grid.Row="1"
+                                              Content="{TemplateBinding DialogBody}"
+                                              DataContext="{TemplateBinding DataContext}" />
+                        </Grid>
+                    </Grid>
+                    <ContentPresenter Grid.Row="2"
+                                      Content="{TemplateBinding DialogBottom}" />
+                </Grid>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource DialogShownStoryboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="controls:FantasyBaseDialog">
+        <Setter Property="Template" Value="{StaticResource FantasyBaseDialogTemplate}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="{DynamicResource ApplicationPageBackgroundThemeBrush}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Cycle" />
+        <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="Cycle" />
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+</ResourceDictionary>

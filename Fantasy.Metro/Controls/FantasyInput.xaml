@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Fantasy.Metro.Controls.FantasyInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="ParentControl">
+    <Border Padding="2" BorderBrush="Transparent" BorderThickness="0"
+            DataContext="{Binding ElementName=ParentControl}">
+        <StackPanel Orientation="{Binding Path=Orientation}">
+            <Label HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   VerticalContentAlignment="Center"
+                   Content="{Binding Path=Header}"
+                   Width="{Binding Path=HeaderWidth}"
+                   Margin="0,0,5,0"/>
+            <TextBox Text="{Binding Path=Text}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                     HorizontalAlignment="Left"
+                     VerticalContentAlignment="Top"
+                     IsReadOnly="{Binding Path=IsReadOnly}"
+                     Width="{Binding Path=InputWidth}"/>
+        </StackPanel>
+    </Border>    
+</UserControl>

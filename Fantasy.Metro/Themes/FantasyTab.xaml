@@ -1,0 +1,130 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fantasy.Metro.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Foundations.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Geometries.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:FantasyTab">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FantasyTab">
+                    <Grid>
+                        <ListBox x:Name="LinkList"
+                                 ItemsSource="{TemplateBinding Links}"
+                                 HorizontalAlignment="{TemplateBinding LinksHorizontalAlignment}"
+                                 VerticalAlignment="Top"
+                                 Margin="{TemplateBinding LinksMargin}"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                 ScrollViewer.CanContentScroll="False"
+                                 ScrollViewer.PanningMode="Both">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                    <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource MenuText}" />
+                                    <Setter Property="FontSize" Value="15"/>
+                                    <Setter Property="FontWeight" Value="Normal" />
+                                    <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+                                    <Setter Property="Margin" Value="12,0,0,0" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter x:Name="Presenter"
+                                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="Foreground" Value="{DynamicResource MenuTextHover}"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsSelected" Value="true">
+                                                        <Setter Property="Foreground" Value="{DynamicResource MenuTextSelected}"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DisplayName, Converter={StaticResource ToUpperConverter}}" 
+                                               Style="{Binding TextStyle}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        
+                        <!-- Content -->
+                        <controls:FantasyFrame Source="{Binding SelectedSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                               ContentLoader="{TemplateBinding ContentLoader}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Layout" Value="List">
+                <Trigger.Setters>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="controls:FantasyTab">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="9" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Link List -->
+                                    <ListBox x:Name="LinkList" 
+                                             Width="{TemplateBinding LinksWidth}"
+                                             ItemsSource="{TemplateBinding Links}"
+                                             ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                             ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Image Source="{Binding Icon}" 
+                                                           Stretch="None"
+                                                           SnapsToDevicePixels="True"
+                                                           RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                                                    <TextBlock Text="{Binding DisplayName, Converter={StaticResource ToUpperConverter}}" 
+                                                               Margin="10,2,2,2"                                                                
+                                                               Style="{Binding TextStyle}"
+                                                               TextTrimming="WordEllipsis" />
+                                                </StackPanel>                                                
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!-- Seperator -->
+                                    <Rectangle Grid.Column="1" 
+                                               Visibility="{TemplateBinding SeperatorVisibility}"
+                                               Fill="{DynamicResource SeparatorBackground}" 
+                                               Width="1" 
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Stretch" />
+
+                                    <!-- Content -->
+                                    <controls:FantasyFrame Grid.Column="2" 
+                                                           Source="{Binding SelectedSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" 
+                                                           ContentLoader="{TemplateBinding ContentLoader}" 
+                                                           Margin="{TemplateBinding ContentMargin}" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger.Setters>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

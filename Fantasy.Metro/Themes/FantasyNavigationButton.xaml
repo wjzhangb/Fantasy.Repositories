@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fantasy.Metro.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Foundations.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Geometries.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="controls:FantasyNavigationButton">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="Foreground" Value="#FF000000" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FantasyNavigationButton">
+                    <Grid Background="Transparent">
+                        <ContentPresenter x:Name="Text" Content="{TemplateBinding Content}" />
+                        <Rectangle
+                            x:Name="FocusVisualWhite"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="1.5"/>
+                        <Rectangle
+                            x:Name="FocusVisualBlack"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="0.5"/>
+                        <TextBlock Text="{TemplateBinding Header}"
+                                   Style="{TemplateBinding HeaderStyle}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationPointerOverForegroundThemeBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationPressedForegroundThemeBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationPressedForegroundThemeBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

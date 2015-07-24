@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Fantasy.Metro">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyWindow.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyPage.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyEllipseButton.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyNavigationButton.xaml"/>        
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyContentControlxaml.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyFrame.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyTile.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyTileItem.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyRibbonButton.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyRibbonDropDownButton.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyTab.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasySwitchButton.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasySwitch.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyBaseDialog.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyPagingControl.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyDialog.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyDropDownButton.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyTreeListView.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyWizard.xaml" />
+        <!--<ResourceDictionary Source="/Fantasy.Metro;component/Themes/FantasyComboInput.xaml" />-->
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

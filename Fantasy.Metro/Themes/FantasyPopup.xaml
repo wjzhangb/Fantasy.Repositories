@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fantasy.Metro.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Foundations.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Button.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="controls:FantasyPopup">
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="StaysOpen" Value="false" />
+        <Setter Property="Placement" Value="MousePoint" />
+        <Setter Property="PopupAnimation" Value="Fade" />        
+    </Style>
+</ResourceDictionary>

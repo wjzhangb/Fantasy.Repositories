@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Fantasy.Metro.Converters">
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:ToLowerConverter x:Key="ToLowerConverter" />
+    <converters:ToUpperConverter x:Key="ToUpperConverter" />
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+    <converters:NullOrEmptyStringToVisibilityConverter x:Key="NullOrEmptyStringToVisibilityConverter" />
+    <converters:StringToRelativeUriConverter x:Key="StringToRelativeUriConverter" />
+    <converters:LevelToIndentConverter x:Key="LevelToIndentConverter" />
+    <converters:ReverseBooleanConverter x:Key="ReverseBooleanConverter" />
+</ResourceDictionary>

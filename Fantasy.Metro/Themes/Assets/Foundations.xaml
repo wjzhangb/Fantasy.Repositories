@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <FontFamily x:Key="ContentControlThemeFontFamily">Segoe UI</FontFamily>
+    <FontFamily x:Key="SettingsFlyoutHeaderThemeFontFamily">Segoe UI</FontFamily>
+    <FontFamily x:Key="SymbolThemeFontFamily">Segoe UI Symbol</FontFamily>
+    <FontFamily x:Key="LightTextFontFamily">Segoe UI Light</FontFamily>
+    <FontFamily x:Key="SemiLightTextFontFamily">Segoe UI Semilight</FontFamily>
+    <system:Double x:Key="ControlContentThemeFontSize">14.667</system:Double>
+    
+    <SolidColorBrush x:Key="ReadOnlyForegroundBrush">#FF333333</SolidColorBrush>
+    
+    <SolidColorBrush x:Key="ListViewItemPlaceholderBackgroundThemeBrush" Color="#FF3D3D3D" />
+    <SolidColorBrush x:Key="ListViewItemOverlayBackgroundThemeBrush" Color="#A6000000" />
+    <SolidColorBrush x:Key="ListViewItemOverlayForegroundThemeBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ListViewItemOverlaySecondaryForegroundThemeBrush" Color="#99FFFFFF"/>
+
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ApplicationPointerOverForegroundThemeBrush" Color="#FF939598" />
+    <SolidColorBrush x:Key="ApplicationPressedForegroundThemeBrush" Color="#FFD1D3D4" />
+    <SolidColorBrush x:Key="ApplicationSecondaryForegroundThemeBrush" Color="#99FFFFFF" />
+    <SolidColorBrush x:Key="AppBarBackgroundThemeBrush" Color="#FF000000" />
+    <SolidColorBrush x:Key="AppBarBorderThemeBrush" Color="#FF000000" />
+    <SolidColorBrush x:Key="AppBarItemBackgroundThemeBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="AppBarItemDisabledForegroundThemeBrush" Color="#66FFFFFF" />
+    <SolidColorBrush x:Key="AppBarItemForegroundThemeBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="AppBarItemPointerOverBackgroundThemeBrush" Color="#21FFFFFF" />
+    <SolidColorBrush x:Key="AppBarItemPointerOverForegroundThemeBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="AppBarItemPressedForegroundThemeBrush" Color="#FF000000" />
+    <SolidColorBrush x:Key="FocusVisualWhiteStrokeThemeBrush" Color="White" />
+    <SolidColorBrush x:Key="FocusVisualBlackStrokeThemeBrush" Color="Black" />
+    <SolidColorBrush x:Key="TileBorderHightlightThemeBrush" Color="#FFB2B2B2" />
+    
+    <Color x:Key="TileBorderHightlightThemeColor">#FFB2B2B2</Color>
+    <Color x:Key="TileBackgroundHightlightThemeColor">#FFB2B2B2</Color>
+    <Color x:Key="WhiteThemeColor">#FFFFFFFF</Color>
+    <Color x:Key="WindowSystemButtonHoverThemeColor">#FF3665B3</Color>
+    <Color x:Key="WindowSystemCloseButtonHoverThemeColor">#FFE04343</Color>
+    
+    <!-- font settings -->
+    <FontFamily x:Key="DefaultFontFamily">Segoe UI</FontFamily>
+    <system:Double x:Key="DefaultFontSize">13</system:Double>
+    <system:Double x:Key="ButtonFontSize">14</system:Double>
+</ResourceDictionary>

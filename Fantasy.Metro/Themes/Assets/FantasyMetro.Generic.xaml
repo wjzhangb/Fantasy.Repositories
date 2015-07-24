@@ -1,0 +1,117 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="RibbonBorderBrush" Color="#FFD4D4D4" />
+    <SolidColorBrush x:Key="LightBackgroundBrush" Color="#FFF0F0F0" />
+
+    <Style x:Key="FixedImage" TargetType="Image">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Stretch" Value="None" />
+    </Style>
+    <Style x:Key="FixedImage16" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+    </Style>
+    <Style x:Key="FixedImage24" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+    </Style>
+    <Style x:Key="FixedImage32" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+    </Style>
+    <Style x:Key="FixedImage48" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="48" />
+    </Style>
+    <Style x:Key="FixedImage64" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="64" />
+        <Setter Property="Height" Value="64" />
+    </Style>
+    <Style x:Key="FixedImage96" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="96" />
+        <Setter Property="Height" Value="96" />
+    </Style>
+    <Style x:Key="FixedImage128" TargetType="Image" BasedOn="{StaticResource FixedImage}">
+        <Setter Property="Width" Value="128" />
+        <Setter Property="Height" Value="128" />
+    </Style>
+    <Style x:Key="ButtonImage32" TargetType="Image" BasedOn="{StaticResource FixedImage32}">
+        <Setter Property="Margin" Value="0,0,5,0" />
+    </Style>
+    <Style x:Key="ButtonImage24" TargetType="Image" BasedOn="{StaticResource FixedImage24}">
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="Stretch" Value="UniformToFill" />
+    </Style>
+    
+    <Style x:Key="VerticalSplitter" TargetType="GridSplitter">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="{StaticResource RibbonBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RibbonBorderBrush}" />
+        <Setter Property="Width" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="HorizontalSplitter" TargetType="GridSplitter">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="{StaticResource RibbonBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource RibbonBorderBrush}" />
+        <Setter Property="Height" Value="1" />
+    </Style>
+
+    <Style x:Key="HorizontalSeparator" TargetType="Separator">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="{StaticResource RibbonBorderBrush}" />
+    </Style>
+    <Style x:Key="LightHorizontalSeparator" TargetType="Separator">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}" />
+    </Style>
+    <Style x:Key="VerticalSeparator" TargetType="Separator" 
+           BasedOn="{StaticResource HorizontalSeparator}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <TransformGroup.Children>
+                        <TransformCollection>
+                            <RotateTransform Angle="90"/>
+                        </TransformCollection>
+                    </TransformGroup.Children>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="LightVerticalSeparator" TargetType="Separator" 
+           BasedOn="{StaticResource HorizontalSeparator}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Background" Value="{StaticResource LightBackgroundBrush}" />
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <TransformGroup.Children>
+                        <TransformCollection>
+                            <RotateTransform Angle="90"/>
+                        </TransformCollection>
+                    </TransformGroup.Children>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

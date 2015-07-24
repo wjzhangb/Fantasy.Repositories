@@ -1,0 +1,76 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Fantasy.Metro.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Foundations.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Converters.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/Geometries.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/TextBlock.xaml" />
+        <ResourceDictionary Source="/Fantasy.Metro;component/Themes/Assets/FantasyMetro.Generic.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:FantasyWizard">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:FantasyWizard">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="TbWizardTitle" Grid.Row="0"
+                                   Style="{StaticResource TitleBold}" Padding="0,10,0,10"/>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ListBox Grid.Column="0" 
+                                     x:Name="LinkList"
+                                     ItemsSource="{TemplateBinding Links}"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                     ScrollViewer.CanContentScroll="False"
+                                     ScrollViewer.PanningMode="Both">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DisplayName}" 
+                                                   Padding="10,5"
+                                                   Style="{Binding TextStyle}"
+                                                   TextTrimming="WordEllipsis" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Separator Grid.Column="1" Margin="0,0,20,0" Style="{StaticResource VerticalSeparator}" />
+                            <!--<controls:FantasyContentControl x:Name="PresentingContent" Grid.Column="2"  />-->
+                            <controls:FantasyFrame Grid.Column="2" x:Name="PresentingFrame"
+                                                   Source="{Binding SelectedSource, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" 
+                                                   ContentLoader="{TemplateBinding ContentLoader}" 
+                                                   Margin="{TemplateBinding ContentMargin}" />
+                        </Grid>
+                        <DockPanel Grid.Row="2" LastChildFill="False" Margin="0,20,0,0">
+                            <Button x:Name="BtnCancel" Width="100" BorderThickness="1" Padding="10, 5" Margin="10,0,0,0" DockPanel.Dock="Right">
+                                <TextBlock Text="Cancel" Style="{StaticResource ButtonTextStyle}" />
+                            </Button>
+                            <Button x:Name="BtnOK" Visibility="Collapsed" Width="100" BorderThickness="1" Padding="10, 5" Margin="50,0,0,0" DockPanel.Dock="Right">
+                                <TextBlock Text="OK" Style="{StaticResource ButtonTextStyle}" />
+                            </Button>
+                            <Button x:Name="BtnFinish" Width="100" BorderThickness="1" Padding="10, 5" Margin="50,0,0,0" DockPanel.Dock="Right">
+                                <TextBlock Text="Finish » |" Style="{StaticResource ButtonTextStyle}" />
+                            </Button>
+                            <Button x:Name="BtnNext" Width="100" BorderThickness="1" Padding="10, 5" Margin="10,0,0,0" DockPanel.Dock="Right">
+                                <TextBlock Text="Next" Style="{StaticResource ButtonTextStyle}" />
+                            </Button>
+                            <Button x:Name="BtnPrevious" Width="100" BorderThickness="1" Padding="10, 5" DockPanel.Dock="Right">
+                                <TextBlock Text="Previous" Style="{StaticResource ButtonTextStyle}" />
+                            </Button>
+                        </DockPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
